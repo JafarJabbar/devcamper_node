@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="16ae3306-43fa-44ca-89ff-aff103ec880d" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1gOrsuXu0bH65IyP7ehnnJq5foj" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="javascript.nodejs.core.library.configured.version" value="12.14.1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/routes" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\_SERVER\Study\devcamper_api\routes" />
+      <recent name="D:\_SERVER\Study\devcamper_api\controllers" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="16ae3306-43fa-44ca-89ff-aff103ec880d" name="Default Changelist" comment="" />
+      <created>1597996689735</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1597996689735</updated>
+      <workItem from="1597996696063" duration="6857000" />
+      <workItem from="1598087972210" duration="17690000" />
+      <workItem from="1598182900657" duration="12034000" />
+      <workItem from="1598249218469" duration="41000" />
+      <workItem from="1598252665743" duration="563000" />
+      <workItem from="1598699382837" duration="4216000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="690" y="228" key="FileChooserDialogImpl" timestamp="1598249256982">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="228" key="FileChooserDialogImpl/0.0.1920.1040/0.-1080.1920.1040@0.0.1920.1040" timestamp="1598249256982" />
+    <state x="690" y="237" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1597996770456" />
+    <state x="532" y="237" key="run.anything.popup" timestamp="1598190637046">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="532" y="237" key="run.anything.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1598190637046" />
+    <state x="532" y="246" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1598098153799" />
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1598130906147">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1598130906147" />
+  </component>
+</project>

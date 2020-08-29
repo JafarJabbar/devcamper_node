@@ -1,0 +1,33 @@
+{
+  "name": "devcamper_api",
+  "version": "1.0.0",
+  "description": "Devcamper Api collection in NODE JS",
+  "main": "server.js",
+  "scripts": {
+    "start": "NODE_ENV=prodution node server",
+    "dev": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JafarJabbar/devcamper_node.git"
+  },
+  "author": "Jafar Jabbarli",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JafarJabbar/devcamper_node/issues"
+  },
+  "homepage": "https://github.com/JafarJabbar/devcamper_node#readme",
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "mongodb": "^3.6.0",
+    "mongoose": "^5.10.0",
+    "morgan": "^1.10.0",
+    "node-geocoder": "^3.27.0",
+    "nodemon": "^2.0.4",
+    "slugify": "^1.4.5"
+  }
+}
