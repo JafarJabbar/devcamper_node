@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="16ae3306-43fa-44ca-89ff-aff103ec880d" name="Default Changelist" comment="" />
+    <list default="true" id="16ae3306-43fa-44ca-89ff-aff103ec880d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.env" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/bootcamps.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/bootcamps.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/courses.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/courses.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Bootcamp.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Bootcamp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Course.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Course.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/bootcamps.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/bootcamps.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/courses.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/courses.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seeder.js" beforeDir="false" afterPath="$PROJECT_DIR$/seeder.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +25,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1gOrsuXu0bH65IyP7ehnnJq5foj" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -22,9 +37,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.14.1" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/routes" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
@@ -48,7 +64,12 @@
       <workItem from="1598182900657" duration="12034000" />
       <workItem from="1598249218469" duration="41000" />
       <workItem from="1598252665743" duration="563000" />
-      <workItem from="1598699382837" duration="4216000" />
+      <workItem from="1598699382837" duration="16715000" />
+      <workItem from="1599030154939" duration="58000" />
+      <workItem from="1599381003222" duration="2600000" />
+      <workItem from="1599460226736" duration="1237000" />
+      <workItem from="1599805671889" duration="3531000" />
+      <workItem from="1599846443525" duration="440000" />
     </task>
     <servers />
   </component>
@@ -56,11 +77,16 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="690" y="228" key="FileChooserDialogImpl" timestamp="1598249256982">
+    <state x="690" y="228" key="FileChooserDialogImpl" timestamp="1599476755188">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="228" key="FileChooserDialogImpl/0.0.1920.1040/0.-1080.1920.1040@0.0.1920.1040" timestamp="1598249256982" />
+    <state x="690" y="228" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1599476755188" />
     <state x="690" y="237" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1597996770456" />
+    <state x="740" y="57" key="RollbackChangesDialog" timestamp="1599806043877">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="57" key="RollbackChangesDialog/0.0.1920.1040/0.-1080.1920.1040@0.0.1920.1040" timestamp="1599806043877" />
     <state x="532" y="237" key="run.anything.popup" timestamp="1598190637046">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

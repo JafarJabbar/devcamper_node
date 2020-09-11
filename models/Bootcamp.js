@@ -96,13 +96,51 @@ const BootcampSchema=new mongoose.Schema({
         type:Date,
         default:Date.now()
     }
+},{
+    toJSON:{virtuals:true},
+    toObject:{virtuals: true}
 });
 
+
+/*
+*
+* Create Virtuals for table
+*
+* */
+//Courses virtuals
+
+BootcampSchema.virtual('courses',{
+   ref:'Course',
+   localField:'_id',
+    foreignField:'bootcamp',
+    justOne:false
+});
+
+
+
+
+/*
+*
+* Mongodb middleware functions
+*
+ */
+
+
+//Slugify function
 BootcampSchema.pre('save',function(next){
    this.slug=slugify(this.name,{lower:true});
    next();
 });
 
+//Cascade delete for bootcamp and courses
+BootcampSchema.pre('remove',async function(next){
+    console.log(`Courses deleted from bootcamp id=${this._id} `)
+    await this.model('Course').deleteMany({bootcamp:this._id});
+    next();
+});
+
+
+//Gecocoder function
 BootcampSchema.pre('save',async function (next){
     const loc = await GeoCoder.geocode(this.address);
     console.log(loc);
