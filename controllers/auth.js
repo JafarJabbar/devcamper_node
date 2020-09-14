@@ -15,12 +15,11 @@ exports.register=AsyncHandler(
         password,
         email,
         role,
+    }).then(oneUser=>{
+        cookieSendResponse(oneUser,200,res)
     }).catch(err=>{
         return next(new ErrorResponse(err.message,400));
     });
-        console.log(user);
-        const token = user.getSignedJwtToken();
-        return res.status(200).json({success:true,token});
 });
 
 //@desc Login user
@@ -44,26 +43,40 @@ exports.login=AsyncHandler(
         user.verifyPassword(password).then(check=>{
             if (!check){
                 return  next(new ErrorResponse("Password is incorrect.",401));
+            }else {
+                cookieSendResponse(user,200,res)
             }
-                const token = user.getSignedJwtToken();
-                return res.status(200).json({success:true,token});
         });
 });
 
-//@desc Cookie send response
-//@route POST /api/v1/auth/login
-//@access Public
-exports.cookieSendResponse=AsyncHandler(
-    async (req,res,next)=>{
-        const {password,email}=req.body;
-
-        //Validate email and password
-        if (!email && !password){
-            return  next(new ErrorResponse("Please add email or password.",400));
+const cookieSendResponse=AsyncHandler(
+    async (user,statusCode,res)=>{
+        const options= {
+            expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRED * 24 * 60 * 60 * 1000),
+            httpOnly: false
+        };
+        if (process.env.NODE_ENV==='production'){
+            options.secure=true;
         }
 
-    });
+        const token = user.getSignedJwtToken();
 
+        return res
+                .status(statusCode)
+                .cookie('token',token,options)
+                .json({success:true,token});
+});
 
-
-
+//@desc Get logged in user data
+//@route GET /api/v1/auth/me
+//@access Private
+exports.getMe=AsyncHandler(async (req,res,next)=>{
+    const user=await User.findById(req.user._conditions._id);
+    console.log(req.user._conditions._id);
+    return res
+            .status(200)
+            .json({
+                success: true,
+                data: user
+            })
+});

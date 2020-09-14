@@ -28,11 +28,13 @@ const advancedResults=(model,populate)=>async (req,res,next)=>{
 
     if (populate){
         model.populate(populate);
+
     }
 
     const total=await model.countDocuments();
 
     const results= await query;
+    console.log(results);
 
     if(!results){
         return next(
@@ -60,12 +62,6 @@ const advancedResults=(model,populate)=>async (req,res,next)=>{
         pagination,
         data:results
     };
-    if (req.params.bootcampId){
-        query = Course.find({bootcamp:req.params.bootcampId });
-    }else {
-        query = Course.find();
-    }
-    let courses=await query;
 
     next();
 };

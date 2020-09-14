@@ -2,6 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const morgan=require('morgan');
 const connectDb=require('./config/db');
+const cookieParser=require('cookie-parser');
 const colors = require('colors');
 const errorHandler = require('./middleware/error');
 dotenv.config({path: './config/config.env'});
@@ -19,6 +20,7 @@ connectDb();
 if (process.env.NODE_ENV==='development'){
     app.use(morgan('development'));
 }
+app.use(cookieParser());
 
 //Fetch routes
 const bootcamps=require('./routes/bootcamps');

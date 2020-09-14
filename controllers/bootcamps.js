@@ -13,9 +13,7 @@ const AsyncHandler=require('../middleware/async');
 //@route GET /api/v1/bootcamps
 //@access Public
 exports.getBootcamps =AsyncHandler(async (req, res, next) => {
-    exports.getBootcamps =AsyncHandler(async (req, res, next) => {
-        res.status(200).json(res.advancedResults);
-    });
+   return res.status(200).json(res.advancedResults);
 });
 
 //@desc Create new bootcamp
