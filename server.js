@@ -23,10 +23,12 @@ if (process.env.NODE_ENV==='development'){
 //Fetch routes
 const bootcamps=require('./routes/bootcamps');
 const courses=require('./routes/courses');
+const auth=require('./routes/auth');
 
 //Mount routes
 app.use('/app/v1/bootcamps/',bootcamps);
 app.use('/app/v1/courses/',courses);
+app.use('/app/v1/auth/',auth);
 
 //Error handling middleware
 app.use(errorHandler);

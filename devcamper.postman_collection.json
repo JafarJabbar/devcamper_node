@@ -1,0 +1,562 @@
+{
+	"info": {
+		"_postman_id": "b53174f8-ff9b-439a-a736-45cb83d12b9b",
+		"name": "devcamper",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Bootcamps",
+			"item": [
+				{
+					"name": "GetBoootcamps",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "Json Type",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/app/v1/bootcamps?limit=4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"app",
+								"v1",
+								"bootcamps"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateBootcamp",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "Json Type",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\t\"_id\": \"5d725a1b7b292f5f8ceff788\",\r\n\t\t\"user\": \"5c8a1d5b0190b214360dc032\",\r\n\t\t\"name\": \"Devcentral Bootcamp\",\r\n\t\t\"description\": \"Is coding your passion? Codemasters will give you the skills and the tools to become the best developer possible. We specialize in front end and full stack web development\",\r\n\t\t\"website\": \"https://devcentral.com\",\r\n\t\t\"phone\": \"(444) 444-4444\",\r\n\t\t\"email\": \"enroll@devcentral.com\",\r\n\t\t\"address\": \"45 Upper College Rd Kingston RI 02881\",\r\n\t\t\"careers\": [\r\n\t\t\t\"Mobile Development\",\r\n\t\t\t\"Web Development\",\r\n\t\t\t\"Data Science\",\r\n\t\t\t\"Business\"\r\n\t\t],\r\n\t\t\"housing\": false,\r\n\t\t\"jobAssistance\": true,\r\n\t\t\"jobGuarantee\": true,\r\n\t\t\"acceptGi\": true,\r\n\t\t\"averageCost\":8000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/app/v1/bootcamps",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"app",
+								"v1",
+								"bootcamps"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ShowBootcamp",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "Json Type",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/app/v1/bootcamps/5f4110f321c78b315857d2f7",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"app",
+								"v1",
+								"bootcamps",
+								"5f4110f321c78b315857d2f7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateBootcamp",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "Json Type",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"careers\": [\r\n        \"Web Development\",\r\n        \"UI/UX\",\r\n        \"Business\",\r\n        \"Data Science\"\r\n    ],\r\n    \"housing\":false,\r\n    \"jobAssistance\":false\r\n\r\n}   "
+						},
+						"url": {
+							"raw": "{{URL}}/app/v1/bootcamps/5f4110f321c78b315857d2f7",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"app",
+								"v1",
+								"bootcamps",
+								"5f4110f321c78b315857d2f7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteBootcamp",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "Json Type",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/app/v1/bootcamps/5d725a1b7b292f5f8ceff788",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"app",
+								"v1",
+								"bootcamps",
+								"5d725a1b7b292f5f8ceff788"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get bootcamps by radius",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "Json Type",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/app/v1/bootcamps/radius/02118/30",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"app",
+								"v1",
+								"bootcamps",
+								"radius",
+								"02118",
+								"30"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Photo upload",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+								"key": "Content-Type",
+								"value": "image/jpeg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/99450/Downloads/Telegram Desktop/body.png"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/app/v1/bootcamps/5f4110f321c78b315857d2f7/photo",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"app",
+								"v1",
+								"bootcamps",
+								"5f4110f321c78b315857d2f7",
+								"photo"
+							]
+						},
+						"description": "Photo upload api request for bootcamp.\r\n"
+					},
+					"response": [
+						{
+							"name": "Photo upload",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+										"key": "Content-Type",
+										"value": "image/jpeg",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/99450/Downloads/Telegram Desktop/body.png"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/app/v1/bootcamps/5f4110f321c78b315857d2f7/photo",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"app",
+										"v1",
+										"bootcamps",
+										"5f4110f321c78b315857d2f7",
+										"photo"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e-tEHPJYr6jLjTF4RS3tpQJbpvAoc\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Sep 2020 13:38:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Please add file.\"\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Courses",
+			"item": [
+				{
+					"name": "GetCourses",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "Json Type",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/app/v1/courses",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"app",
+								"v1",
+								"courses"
+							]
+						},
+						"description": "Get all course datas API"
+					},
+					"response": []
+				},
+				{
+					"name": "GetCoursesForBootcamp",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "Json Type",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/app/v1/bootcamps/5d713995b721c3bb38c1f5d0/courses",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"app",
+								"v1",
+								"bootcamps",
+								"5d713995b721c3bb38c1f5d0",
+								"courses"
+							]
+						},
+						"description": "Get courses for bootcamp."
+					},
+					"response": []
+				},
+				{
+					"name": "Add new course",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\t\"title\": \"Front End Web Development 12121\",\r\n\t\t\"description\": \"This course will provide you with all of the essentials to become a successful frontend web developer. You will learn to master HTML, CSS and front end JavaScript, along with tools like Git, VSCode and front end frameworks like Vue\",\r\n\t\t\"weeks\": 8,\r\n\t\t\"tuition\": 100,\r\n\t\t\"minimumSkill\": \"Beginner\",\r\n\t\t\"scholarhipsAvailable\": true,\r\n\t\t\"bootcamp\": \"5d713995b721c3bb38c1f5d0\",\r\n\t\t\"user\": \"5d7a514b5d2c12c7449be045\"\r\n\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/app/v1/bootcamps/5d713995b721c3bb38c1f5d0/courses",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"app",
+								"v1",
+								"bootcamps",
+								"5d713995b721c3bb38c1f5d0",
+								"courses"
+							]
+						},
+						"description": "Api request for new course add"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Course",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/app/v1/courses/5d725a4a7b292f5f8ceff789",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"app",
+								"v1",
+								"courses",
+								"5d725a4a7b292f5f8ceff789"
+							]
+						},
+						"description": "Get single course in id\r\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update  Course",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Front End Web Development 55555\",\r\n    \"weeks\": \"8\",\r\n    \"tuition\": 101010101\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/app/v1/courses/5d725a4a7b292f5f8ceff789",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"app",
+								"v1",
+								"courses",
+								"5d725a4a7b292f5f8ceff789"
+							]
+						},
+						"description": "Update course with id"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete  Course",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/app/v1/courses/5d725a4a7b292f5f8ceff789",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"app",
+								"v1",
+								"courses",
+								"5d725a4a7b292f5f8ceff789"
+							]
+						},
+						"description": "Delete course with id"
+					},
+					"response": []
+				}
+			],
+			"description": "Course CRUD API request collection folder.",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Register Route",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Jafar Jabbarli\",\r\n    \"email\":\"jabbarlijafar@gmail.com\",\r\n    \"password\":\"123456\",\r\n    \"role\":\"User\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/app/v1/auth/register",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"app",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login route",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"jabbarlijafar@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/app/v1/auth/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"app",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Users API request collection.\r\n",
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-const UserSchema = mongoose.Schema({
+const UserSchema =new mongoose.Schema({
     name:{
         type:String,
         required:[true,'Please add name.']
@@ -48,10 +48,19 @@ UserSchema.pre('save',async function(next){
 /*
 * JWT token after register
 */
-UserSchema.methods.getSignedJwtToken=function(){
-    return jwt.sign({id:this._id},process.env.JWT_SECRET,{
-        expiresIn: process.env.JWT_EXPIRED_DATE
-    })
+UserSchema.methods.getSignedJwtToken = function(){
+    const token = jwt.sign({id:this._id},process.env.JWT_SECRET,{
+        expiresIn: process.env.JWT_EXPIRED
+    });
+    return token;
+};
+
+/*
+* Check entered password with
+* hashed password
+*/
+UserSchema.methods.verifyPassword =  function(enteredPassword){
+  return  bcrypt.compare(enteredPassword,this.password);
 };
 
 
