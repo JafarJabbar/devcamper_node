@@ -19,7 +19,7 @@ router
 
 router
     .route('/')
-    .get(advancedResults(Bootcamp,'Course'),getBootcamps)
+    .get(advancedResults(Bootcamp,'courses'),getBootcamps)
     .post(protect,authorize('Publisher','Admin'),createBootcamp);
 
 router

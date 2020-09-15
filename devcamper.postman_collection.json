@@ -43,6 +43,16 @@
 				{
 					"name": "CreateBootcamp",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -54,7 +64,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\t\"_id\": \"5d725a1b7b292f5f8ceff788\",\r\n\t\t\"user\": \"5c8a1d5b0190b214360dc032\",\r\n\t\t\"name\": \"Devcentral Bootcamp\",\r\n\t\t\"description\": \"Is coding your passion? Codemasters will give you the skills and the tools to become the best developer possible. We specialize in front end and full stack web development\",\r\n\t\t\"website\": \"https://devcentral.com\",\r\n\t\t\"phone\": \"(444) 444-4444\",\r\n\t\t\"email\": \"enroll@devcentral.com\",\r\n\t\t\"address\": \"45 Upper College Rd Kingston RI 02881\",\r\n\t\t\"careers\": [\r\n\t\t\t\"Mobile Development\",\r\n\t\t\t\"Web Development\",\r\n\t\t\t\"Data Science\",\r\n\t\t\t\"Business\"\r\n\t\t],\r\n\t\t\"housing\": false,\r\n\t\t\"jobAssistance\": true,\r\n\t\t\"jobGuarantee\": true,\r\n\t\t\"acceptGi\": true,\r\n\t\t\"averageCost\":8000\r\n}",
+							"raw": "{\r\n\t\t\"_id\": \"5d713a66ec8f2b88b8f830b8\",\r\n\t\t\"name\": \"ModernTech Bootcamp\",\r\n\t\t\"description\": \"ModernTech has one goal, and that is to make you a rockstar developer and/or designer with a six figure salary. We teach both development and UI/UX\",\r\n\t\t\"website\": \"https://moderntech.com\",\r\n\t\t\"phone\": \"(222) 222-2222\",\r\n\t\t\"email\": \"enroll@moderntech.com\",\r\n\t\t\"address\": \"220 Pawtucket St, Lowell, MA 01854\",\r\n\t\t\"careers\": [\"Web Development\", \"UI/UX\", \"Mobile Development\"],\r\n\t\t\"housing\": false,\r\n\t\t\"jobAssistance\": true,\r\n\t\t\"jobGuarantee\": false,\r\n\t\t\"acceptGi\": true,\r\n\t\t\"averageCost\":11000\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -333,7 +343,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{URL}}/app/v1/courses",
+							"raw": "{{URL}}/app/v1/courses?limit=5",
 							"host": [
 								"{{URL}}"
 							],
@@ -341,6 +351,12 @@
 								"app",
 								"v1",
 								"courses"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5"
+								}
 							]
 						},
 						"description": "Get all course datas API"
@@ -497,12 +513,24 @@
 			"item": [
 				{
 					"name": "Register Route",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0888562e-f1de-4330-951f-d3e5d1fd4617",
+								"exec": [
+									"pm.environment.set(\"TOKEN\",pm.response.json().token)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Jafar Jabbarli\",\r\n    \"email\":\"jabbarlijafar@gmail.com\",\r\n    \"password\":\"123456\",\r\n    \"role\":\"User\"\r\n}",
+							"raw": "{\r\n    \"name\":\"Jafar Jabbarli\",\r\n    \"email\":\"jabbarlijafar@gmail.com\",\r\n    \"password\":\"123456\",\r\n    \"role\":\"Publisher\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -526,6 +554,18 @@
 				},
 				{
 					"name": "Login route",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0f3ac380-0d5b-4c97-9f06-7dcbce153d8e",
+								"exec": [
+									"pm.environment.set(\"TOKEN\",pm.response.json().token)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -550,6 +590,37 @@
 								"login"
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetMe",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/app/v1/auth/me",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"app",
+								"v1",
+								"auth",
+								"me"
+							]
+						},
+						"description": "Get logged in users data."
 					},
 					"response": []
 				}

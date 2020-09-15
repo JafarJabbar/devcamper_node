@@ -27,8 +27,7 @@ const advancedResults=(model,populate)=>async (req,res,next)=>{
     query=query.skip(startIndex).limit(limit);
 
     if (populate){
-        model.populate(populate);
-
+        query=query.populate(populate);
     }
 
     const total=await model.countDocuments();
@@ -55,14 +54,12 @@ const advancedResults=(model,populate)=>async (req,res,next)=>{
             limit
         }
     }
-
     res.advancedResults={
         success:true,
         count:results.length,
         pagination,
         data:results
     };
-
     next();
 };
 

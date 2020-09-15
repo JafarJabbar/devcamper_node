@@ -49,6 +49,9 @@ exports.login=AsyncHandler(
         });
 });
 
+/*
+* Send response to browser cookie
+*/
 const cookieSendResponse=AsyncHandler(
     async (user,statusCode,res)=>{
         const options= {
@@ -71,8 +74,8 @@ const cookieSendResponse=AsyncHandler(
 //@route GET /api/v1/auth/me
 //@access Private
 exports.getMe=AsyncHandler(async (req,res,next)=>{
-    const user=await User.findById(req.user._conditions._id);
-    console.log(req.user._conditions._id);
+    const user=await User.findById(req.user.id);
+    console.log(req.user);
     return res
             .status(200)
             .json({

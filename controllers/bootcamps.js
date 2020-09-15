@@ -21,6 +21,16 @@ exports.getBootcamps =AsyncHandler(async (req, res, next) => {
 //@access Private
 
 exports.createBootcamp =AsyncHandler(async (req, res, next) => {
+    //add user to req.body
+    req.body.user=req.user.id;
+
+    console.log(req);
+    // check if user has bootcamp
+    const checkedBootcamp=await Bootcamp.findOne({user:req.user.id});
+    console.log(checkedBootcamp);
+    if (checkedBootcamp && req.user.role !== 'Admin'){
+      return next(new ErrorResponse(`This user already has a bootcamp. `,400));
+    }
     const bootcamp=await Bootcamp.create(req.body);
     res.status(200).json({success:true,data:bootcamp})
 });

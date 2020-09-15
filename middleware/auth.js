@@ -21,7 +21,7 @@ exports.protect =AsyncHandler(async (req,res,next)=>{
 
     try {
         const decodedUser=jwt.verify(token,process.env.JWT_SECRET);
-        req.user=User.findById(decodedUser.id);
+        req.user=await User.findById(decodedUser.id);
         next();
     }catch (err) {
         next(new ErrorResponse("Internal server error.",500));
@@ -30,6 +30,7 @@ exports.protect =AsyncHandler(async (req,res,next)=>{
 
 exports.authorize = (...roles)=>{
     return (req,res,next)=>{
+        console.log(req.user);
         if (!roles.includes(req.user.role)){
             return next(new ErrorResponse(`User role ${req.user.role} have not permission for this route.`,403));
         }
