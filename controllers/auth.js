@@ -1,5 +1,6 @@
 const User = require('../models/User');
 const ErrorResponse = require('../utils/errorResponse');
+const sendMail = require('../utils/sendEmail');
 const AsyncHandler=require('../middleware/async');
 
 
@@ -49,6 +50,62 @@ exports.login=AsyncHandler(
         });
 });
 
+//@desc Get logged in user data
+//@route GET /api/v1/auth/me
+//@access Private
+exports.getMe=AsyncHandler(async (req,res,next)=>{
+    const user=await User.findById(req.user.id);
+    console.log(req.user);
+    return res
+            .status(200)
+            .json({
+                success: true,
+                data: user
+            })
+});
+
+
+//@desc Forgot password
+//@route GET /api/v1/auth/forgot
+//@access Public
+exports.forgotPassword=AsyncHandler(async (req,res,next)=>{
+    if (!req.body.email){
+        return  next(new ErrorResponse("Please enter email.",400));
+    }
+    const user=await User.findOne({email:req.body.email});
+    if (!user){
+        return  next(new ErrorResponse("User not found with this email. Please register first.",401));
+    }
+
+    user.save({validateBeforeSave:false});
+    const resetToken=user.getResetPasswordToken();
+    console.log(resetToken);
+    const resetUrl=`${req.protocol}/${req.host}/app/v1/reset/${resetToken}`;
+    const message=`Please enter this URL for reset passport: ${resetUrl}`;
+
+
+    try {
+        await sendMail({
+            email:req.body.email,
+            subject:'Password reset',
+            message
+        });
+        return res
+            .status(200)
+            .json({
+                success: true,
+                data: "Email sent. Please check your inbox."
+            })
+    }catch (err) {
+        console.log(err);
+        user.resetToken=undefined;
+        user.resetTokenExpiredDate=undefined;
+        return next(new ErrorResponse('This email is not working.Please add valid email.',400));
+    }
+});
+
+
+
 /*
 * Send response to browser cookie
 */
@@ -65,21 +122,7 @@ const cookieSendResponse=AsyncHandler(
         const token = user.getSignedJwtToken();
 
         return res
-                .status(statusCode)
-                .cookie('token',token,options)
-                .json({success:true,token});
-});
-
-//@desc Get logged in user data
-//@route GET /api/v1/auth/me
-//@access Private
-exports.getMe=AsyncHandler(async (req,res,next)=>{
-    const user=await User.findById(req.user.id);
-    console.log(req.user);
-    return res
-            .status(200)
-            .json({
-                success: true,
-                data: user
-            })
-});
+            .status(statusCode)
+            .cookie('token',token,options)
+            .json({success:true,token});
+    });
