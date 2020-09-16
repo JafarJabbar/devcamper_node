@@ -26,11 +26,13 @@ app.use(cookieParser());
 const bootcamps=require('./routes/bootcamps');
 const courses=require('./routes/courses');
 const auth=require('./routes/auth');
+const users=require('./routes/users');
 
 //Mount routes
 app.use('/app/v1/bootcamps/',bootcamps);
 app.use('/app/v1/courses/',courses);
 app.use('/app/v1/auth/',auth);
+app.use('/app/v1/users/',users);
 
 //Error handling middleware
 app.use(errorHandler);

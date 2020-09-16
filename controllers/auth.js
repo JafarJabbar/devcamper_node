@@ -1,6 +1,7 @@
 const User = require('../models/User');
 const ErrorResponse = require('../utils/errorResponse');
 const sendMail = require('../utils/sendEmail');
+const crypto = require('crypto');
 const AsyncHandler=require('../middleware/async');
 
 
@@ -64,6 +65,40 @@ exports.getMe=AsyncHandler(async (req,res,next)=>{
             })
 });
 
+//@desc Update logged in user data
+//@route PUT /api/v1/auth/update
+//@access Private
+exports.updateUser  = AsyncHandler(async (req,res,next)=>{
+    const updateFields={name:req.body.name,email:req.body.email};
+
+    const user=await User.findByIdAndUpdate(req.user.id,updateFields,{
+        new:true,
+        runValidators:true
+    });
+    console.log(req.user);
+    return res
+            .status(200)
+            .json({
+                success: true,
+                data: user
+            })
+});
+
+//@desc Update logged in password
+//@route PUT /api/v1/auth/password
+//@access Private
+exports.updatePassword  = AsyncHandler(async (req,res,next)=>{
+    const user=await User.findById(req.user.id).select('+password');
+    console.log(req.user);
+    if (!(await user.verifyPassword(req.body.currentPassword))){
+        return next(new ErrorResponse("Password is incorrect.",401));
+    }
+    user.password=req.body.newPassword;
+    await user.save();
+
+    cookieSendResponse(user,200,res);
+});
+
 
 //@desc Forgot password
 //@route GET /api/v1/auth/forgot
@@ -80,9 +115,8 @@ exports.forgotPassword=AsyncHandler(async (req,res,next)=>{
     user.save({validateBeforeSave:false});
     const resetToken=user.getResetPasswordToken();
     console.log(resetToken);
-    const resetUrl=`${req.protocol}/${req.host}/app/v1/reset/${resetToken}`;
-    const message=`Please enter this URL for reset passport: ${resetUrl}`;
-
+    const resetUrl=`${req.protocol}/${req.get('host')}/app/v1/auth/reset/${resetToken}`;
+    const message=`<p>Please enter this URL for reset passport: <a href="${resetUrl}">${resetUrl}</a></p>`;
 
     try {
         await sendMail({
@@ -102,6 +136,36 @@ exports.forgotPassword=AsyncHandler(async (req,res,next)=>{
         user.resetTokenExpiredDate=undefined;
         return next(new ErrorResponse('This email is not working.Please add valid email.',400));
     }
+});
+
+
+//@desc Reset password
+//@route PUT /api/v1/auth/reset/:token
+//@access Public
+exports.resetPassword=AsyncHandler(async (req,res,next)=>{
+    const resetToken=crypto
+                        .createHash('sha256')
+                        .update(req.params.token)
+                        .digest('hex');
+
+    console.log(resetToken);
+    console.log(req.params.token);
+    const user= await User.findOne({
+        resetToken,
+        resetTokenExpiredDate:{$gt:Date.now()}
+    });
+
+    if (!user){
+        return next(new ErrorResponse('Invalid token.',400));
+    }
+
+    //Change password
+    user.password=req.body.password;
+    user.resetToken=undefined;
+    user.resetTokenExpiredDate=undefined;
+    await user.save({validateBeforeSave: true});
+    //Send token to the cookie
+    cookieSendResponse(user,200,res);
 });
 
 

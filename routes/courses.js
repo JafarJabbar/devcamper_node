@@ -3,7 +3,7 @@ const Course = require('../models/Course');
 const {
     getCourses,
     getCourse,
-    addCourse,
+    createCourse,
     updateCourse,
     deleteCourse
 } = require('../controllers/courses');
@@ -16,7 +16,7 @@ router
         path:'bootcamp',
         select:'name description'
     }),getCourses)
-    .post(protect, authorize('Publisher','Admin'),addCourse);
+    .post(protect, authorize('Publisher','Admin'),createCourse);
 
 router
     .route('/:id')
