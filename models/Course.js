@@ -36,6 +36,11 @@ const CourseSchema=new mongoose.Schema({
         ref:'Bootcamp',
         required: true
     },
+    user:{
+        type:String,
+        ref:'User',
+        required: true
+    },
 });
 /*
 * Static methods

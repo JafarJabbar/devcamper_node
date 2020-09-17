@@ -28,7 +28,10 @@ exports.getCourses =AsyncHandler(async (req, res, next) => {
 //@access Public
 exports.getCourse =AsyncHandler(async (req, res, next) => {
     let query;
-    query = Course.findById(req.params.id );
+    query = Course.findById(req.params.id).populate({
+        path:'bootcamp',
+        select:'name description'
+    });
 
     let course=await query;
 
@@ -75,7 +78,7 @@ exports.createCourse =AsyncHandler(async (req, res, next) => {
 //@route PUT /api/v1/courses/:id
 //@access Private
 exports.updateCourse =AsyncHandler(async (req, res, next) => {
-    let course=Course.findById(req.params.id);
+    let course=await Course.findById(req.params.id);
     if(!course){
         next(new ErrorResponse(`No course on id of ${req.params.id}`),404);
     }
@@ -102,7 +105,7 @@ exports.updateCourse =AsyncHandler(async (req, res, next) => {
 //@route Delete /api/v1/courses/:id
 //@access Private
 exports.deleteCourse =AsyncHandler(async (req, res, next) => {
-    let course=Course.findById(req.params.id);
+    let course=await Course.findById(req.params.id);
     if(!course){
         next(new ErrorResponse(`No course on id of ${req.params.id}`),404);
     }

@@ -27,12 +27,14 @@ const bootcamps=require('./routes/bootcamps');
 const courses=require('./routes/courses');
 const auth=require('./routes/auth');
 const users=require('./routes/users');
+const reviews=require('./routes/reviews');
 
 //Mount routes
 app.use('/app/v1/bootcamps/',bootcamps);
 app.use('/app/v1/courses/',courses);
 app.use('/app/v1/auth/',auth);
 app.use('/app/v1/users/',users);
+app.use('/app/v1/reviews/',reviews);
 
 //Error handling middleware
 app.use(errorHandler);
