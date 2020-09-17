@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16ae3306-43fa-44ca-89ff-aff103ec880d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/controllers/reviews.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Review.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/reviews.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_data/reviews.json" beforeDir="false" afterPath="$PROJECT_DIR$/_data/reviews.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/courses.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/courses.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Course.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Course.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/bootcamps.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/bootcamps.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seeder.js" beforeDir="false" afterPath="$PROJECT_DIR$/seeder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +81,7 @@
       <workItem from="1600105287045" duration="9837000" />
       <workItem from="1600204351415" duration="68000" />
       <workItem from="1600278014613" duration="9565000" />
-      <workItem from="1600362194498" duration="6465000" />
+      <workItem from="1600362194498" duration="6782000" />
     </task>
     <servers />
   </component>

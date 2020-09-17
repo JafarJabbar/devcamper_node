@@ -105,7 +105,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{URL}}/app/v1/bootcamps/5f4110f321c78b315857d2f7",
+							"raw": "{{URL}}/app/v1/bootcamps/5d725a1b7b292f5f8ceff788",
 							"host": [
 								"{{URL}}"
 							],
@@ -113,7 +113,7 @@
 								"app",
 								"v1",
 								"bootcamps",
-								"5f4110f321c78b315857d2f7"
+								"5d725a1b7b292f5f8ceff788"
 							]
 						}
 					},
@@ -539,6 +539,217 @@
 			"protocolProfileBehavior": {}
 		},
 		{
+			"name": "Reviews",
+			"item": [
+				{
+					"name": "GetReviews",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "Json Type",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/app/v1/reviews?limit=5",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"app",
+								"v1",
+								"reviews"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						},
+						"description": "Get all review datas API"
+					},
+					"response": []
+				},
+				{
+					"name": "AddNewReview",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\t\"title\": \"Very ejdaha\",\r\n\t\t\"text\": \"This course will provide you with all of the essentials to become a successful frontend web developer. You will learn to master HTML, CSS and front end JavaScript, along with tools like Git, VSCode and front end frameworks like Vue\",\r\n\t\t\"rating\": 9\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/app/v1/bootcamps/5d725a1b7b292f5f8ceff788/reviews",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"app",
+								"v1",
+								"bootcamps",
+								"5d725a1b7b292f5f8ceff788",
+								"reviews"
+							]
+						},
+						"description": "Api request for new review add"
+					},
+					"response": []
+				},
+				{
+					"name": "GetReviewsForBootcamp",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "Json Type",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/app/v1/bootcamps/5d725a1b7b292f5f8ceff788/reviews",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"app",
+								"v1",
+								"bootcamps",
+								"5d725a1b7b292f5f8ceff788",
+								"reviews"
+							]
+						},
+						"description": "Get reviews for bootcamp."
+					},
+					"response": []
+				},
+				{
+					"name": "GetReview",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/app/v1/reviews/5f63ac43dc25d716a0e4db0b",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"app",
+								"v1",
+								"reviews",
+								"5f63ac43dc25d716a0e4db0b"
+							]
+						},
+						"description": "Get single review in id"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateReview",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Bomba kursdu\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/app/v1/reviews/5f63b4dc4400232578272085",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"app",
+								"v1",
+								"reviews",
+								"5f63b4dc4400232578272085"
+							]
+						},
+						"description": "Update review with id"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteReview",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/app/v1/reviews/5f63b4dc4400232578272085",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"app",
+								"v1",
+								"reviews",
+								"5f63b4dc4400232578272085"
+							]
+						},
+						"description": "Delete review with id"
+					},
+					"response": []
+				}
+			],
+			"description": "Course CRUD API request collection folder.",
+			"protocolProfileBehavior": {}
+		},
+		{
 			"name": "Users",
 			"item": [
 				{
@@ -771,7 +982,7 @@
 			"name": "AUTH",
 			"item": [
 				{
-					"name": "Register Route",
+					"name": "RegisterRoute",
 					"event": [
 						{
 							"listen": "test",
@@ -789,7 +1000,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Jafar Jabbarli\",\r\n    \"email\":\"jabbarlijafar@gmail.com\",\r\n    \"password\":\"123456\",\r\n    \"role\":\"Publisher\"\r\n}",
+							"raw": "{\r\n    \"name\":\"Jafar Jabbarli\",\r\n    \"email\":\"shah@gmail.com\",\r\n    \"password\":\"123456\",\r\n    \"role\":\"User\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -812,7 +1023,7 @@
 					"response": []
 				},
 				{
-					"name": "Login route",
+					"name": "LoginRoute",
 					"event": [
 						{
 							"listen": "test",
@@ -830,7 +1041,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"jabbarlijafar1@gmail.com\",\r\n    \"password\":\"123321\"\r\n}",
+							"raw": "{\r\n    \"email\":\"jabbarlijafar@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
