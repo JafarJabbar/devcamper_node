@@ -4,6 +4,12 @@ const morgan=require('morgan');
 const connectDb=require('./config/db');
 const cookieParser=require('cookie-parser');
 const colors = require('colors');
+const sanitize = require('express-mongo-sanitize');
+const helmet = require('helmet');
+const xss = require('xss-clean');
+const cors = require('cors');
+const limit = require('express-rate-limit');
+const hpp = require('hpp');
 const errorHandler = require('./middleware/error');
 dotenv.config({path: './config/config.env'});
 
@@ -12,6 +18,28 @@ const app=express();
 
 //Body parser
 app.use(express.json());
+
+//Mongo sanitize
+app.use(sanitize());
+
+//Declare rate-limiter
+const limiter=limit({
+    windowMs: 10*60*1000,
+    max:100
+});
+app.use(limit);
+
+//Set security headers data
+app.use(helmet());
+
+//Prevent xss attacks
+app.use(xss());
+
+//Prevent http params pollution
+app.use(hpp());
+
+//cors
+app.use(cors());
 
 //Database connection
 connectDb();

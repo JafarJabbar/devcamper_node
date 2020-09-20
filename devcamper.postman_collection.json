@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8e250df4-0167-4437-977d-03deb35eade2",
+		"_postman_id": "90624f53-cdd6-403b-abcf-597716144da2",
 		"name": "devcamper",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -958,7 +958,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "ad25fb1c-891d-4048-8bd0-607fe68a8562",
+						"id": "780cb3ff-2f4f-41d7-9fa3-9cfb9d2bcd1a",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -968,7 +968,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "db7f2ebf-0301-438b-ade5-b8ae768c09b3",
+						"id": "f4299fa4-984c-40d2-8d14-e200c4f6af97",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -987,7 +987,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "822ad347-e640-4b68-84a8-05670d6d1d4c",
+								"id": "1a1fdb80-fa55-421e-9272-bd37f1a13ef7",
 								"exec": [
 									"pm.environment.set(\"TOKEN\",pm.response.json().token)"
 								],
@@ -1028,7 +1028,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "d9cbde48-edc8-475e-a284-e2413ade78f8",
+								"id": "cdd2ac54-1150-4f9e-a90a-8dcca5e19c5b",
 								"exec": [
 									"pm.environment.set(\"TOKEN\",pm.response.json().token)"
 								],
@@ -1256,6 +1256,37 @@
 							]
 						},
 						"description": "Update User password"
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/app/v1/auth/logout",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"app",
+								"v1",
+								"auth",
+								"logout"
+							]
+						},
+						"description": "Log out current user."
 					},
 					"response": []
 				}
